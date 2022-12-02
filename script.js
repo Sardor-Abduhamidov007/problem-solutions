@@ -114,7 +114,7 @@
 
 // // 4 - MASALA
 
-// // 1dan 100gacha bolgan juft sonlarni chiqaring
+// // 1dan 100gacha bolgan toq sonlarni chiqaring
 
 // let num = 1;
 // while (num <= 50) {
@@ -128,7 +128,7 @@
 
 //// 5 - MASALA
 
-//// 1dan 100gacha bolgan toq sonlarni chiqaring
+//// 1dan 100gacha bolgan juft sonlarni chiqaring
 
 // for (let i = 1; i <= 50; i++) {
 //     console.log(i * 2);
