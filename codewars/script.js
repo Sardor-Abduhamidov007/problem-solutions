@@ -54,9 +54,19 @@ console.log(isSquare(24));
 //   aholisi sonidan ko'p yoki teng bo'lishi uchun necha yil kerak p = 1200?
 
 function nbYear(p0, percent, aug, p) {
-    for (let years = 0; p0 < p; years++) {
-      p0 = Math.floor(p0 + p0 * percent / 100 + aug);
-    }
+    for (let years = 0; p0 < p; years++) 
+     p0 = Math.floor(p0 + p0 * percent / 100 + aug);
     return years
   }
 console.log(nbYear(1500, 5, 100, 5000));
+
+// 5 Trolllar sizning sharhlar bo'limingizga hujum qilmoqda!
+// Ushbu vaziyatni hal qilishning keng tarqalgan usuli - trollarning izohlaridan barcha 
+// unli tovushlarni olib tashlash, tahdidni zararsizlantirish.
+// Sizning vazifangiz satrni oladigan funktsiyani yozish va barcha unlilar olib tashlangan yangi qatorni qaytarishdir.
+// Masalan, "Bu veb-sayt yutqazganlar uchun LOL!" "Ths wbst s fr lsrs LL!" ga aylanadi.
+
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, '');
+}
+console.log(disemvowel("Bu veb-sayt yutqazganlar uchun LOL!"));
