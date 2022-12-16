@@ -39,3 +39,24 @@ function isValidWalk(walk) {
   return h;
 }
 console.log(isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "w", "e"]));
+
+// 3 sizga ma'lum birson berilyabdi siz uni ildizi butun sonda 
+// chiqsa true aks hodlda falsa qaytarishingiz kerak
+
+let isSquare = function(n){
+    return Number.isInteger(Math.sqrt(n))
+}
+console.log(isSquare(24));
+
+// 4 Kichik shaharchada aholi p0 = 1000yil boshida. Aholi soni 
+// yildan-yilga muntazam oshib bormoqda, 2 percentbundan tashqari ,
+//  50har yili shaharchaga yangi aholi kelib qolmoqda. Shahar o'z
+//   aholisi sonidan ko'p yoki teng bo'lishi uchun necha yil kerak p = 1200?
+
+function nbYear(p0, percent, aug, p) {
+    for (let years = 0; p0 < p; years++) {
+      p0 = Math.floor(p0 + p0 * percent / 100 + aug);
+    }
+    return years
+  }
+console.log(nbYear(1500, 5, 100, 5000));
