@@ -70,3 +70,47 @@ function disemvowel(str) {
   return str.replace(/[aeiou]/gi, '');
 }
 console.log(disemvowel("Bu veb-sayt yutqazganlar uchun LOL!"));
+
+// 6 Agar berilayotgan qiymatlar 
+// "A" , "B" => 1
+// "a" , "B" => 0
+// "a" , "b" => 1
+// "A" , "b" => 1
+// "1" , "b" => -1
+// "a" , "?" => -1
+// qaytaradigan funksiya yarating
+function doTest(a, b) {
+  if (a.match(/[A-Z]/) && b.match(/[A-Z]/)) {
+    return 1
+  } else if (a.match(/[a-z]/) && b.match(/[a-z]/)) {
+    return 1
+  } else if (a.match(/[A-Z]/) && b.match(/[a-z]/)) {
+    return 0
+  } else if (a.match(/[a-z]/) && b.match(/[A-Z]/)) {
+    return 0
+  } else {
+    return -1
+  }
+}
+console.log(doTest('C', '0'));
+
+// 7 Massivdagi eng katta sonni qaytaring
+function findUniq(arr) {
+  return arr.sort((a, b) => (a-b)).pop()
+}
+console.log(findUniq([ 3, 10, 3, 3, 3 ]));
+
+// 8 Ushbu kichik topshiriqda sizga bo'sh joy ajratilgan raqamlar qatori berilgan va eng yuqori va eng past raqamni qaytarishingiz kerak.
+function highAndLow(nums){
+  let num = nums.split(',').join().split(' ').map(x => Number(x)).sort((a, b) => (a - b)).reverse();
+  let f = num[0];
+  let l = num[num.length - 1];
+  return `${f} ${l}`
+}
+
+// 2-usul
+function highAndLow(numbers){
+  numbers = numbers.split(' ').map(Number);
+  return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
+}
+console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
