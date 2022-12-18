@@ -79,6 +79,7 @@ console.log(disemvowel("Bu veb-sayt yutqazganlar uchun LOL!"));
 // "1" , "b" => -1
 // "a" , "?" => -1
 // qaytaradigan funksiya yarating
+
 function doTest(a, b) {
   if (a.match(/[A-Z]/) && b.match(/[A-Z]/)) {
     return 1
@@ -95,12 +96,15 @@ function doTest(a, b) {
 console.log(doTest('C', '0'));
 
 // 7 Massivdagi eng katta sonni qaytaring
+
 function findUniq(arr) {
   return arr.sort((a, b) => (a-b)).pop()
 }
 console.log(findUniq([ 3, 10, 3, 3, 3 ]));
 
-// 8 Ushbu kichik topshiriqda sizga bo'sh joy ajratilgan raqamlar qatori berilgan va eng yuqori va eng past raqamni qaytarishingiz kerak.
+// 8 Ushbu kichik topshiriqda sizga bo'sh joy ajratilgan raqamlar qatori berilgan va
+// eng yuqori va eng past raqamni qaytarishingiz kerak.
+
 function highAndLow(nums){
   let num = nums.split(',').join().split(' ').map(x => Number(x)).sort((a, b) => (a - b)).reverse();
   let f = num[0];
@@ -114,3 +118,42 @@ function highAndLow(numbers){
   return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
 }
 console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+
+// 9 berilgan so'zlarni teskari qilib qaytaradigan funksiya yarating
+function reverseWords(words) {
+    let s = words.split(" ")
+    let f = s.map((item, index) => {
+       let d = item.split('').reverse().join('')
+       return d
+    })
+    return f.join(' ')
+}
+
+// 2-usul
+function reverseWords(str) {
+    str.split(' ').map(str => str.split('').reverse().join('')).join(' ')
+}
+
+console.log(reverseWords('The quick brown fox jumps over the lazy dog.'));
+
+
+// 10 Sizning vazifangiz har qanday manfiy bo'lmagan butun sonni argument sifatida qabul
+//  qiladigan va uni raqamlari bilan kamayish tartibida qaytara oladigan funktsiyani yaratishdir
+
+function descendingOrder(num) {
+    return Number(num.toString().split('').map(x => Number(x)).sort((a, b)=> (a-b)).reverse().join(''))
+}
+
+console.log(descendingOrder(15));
+
+
+// 11 Ushbu katada sizdan raqamning har bir raqamini kvadratga
+// kiritish va ularni birlashtirish so'raladi.
+// Masalan, funksiya orqali 9119 ni ishlatsak, 811181 chiqadi,
+// chunki 9 2 81 va 1 2 1 ga teng.
+
+function squareDigits(nums) {
+    return Number(String(nums).split('').map(x => Math.pow(x, 2)).join(''))
+}
+
+console.log(squareDigits(3212));
