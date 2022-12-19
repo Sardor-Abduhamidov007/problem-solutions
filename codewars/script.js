@@ -157,3 +157,49 @@ function squareDigits(nums) {
 }
 
 console.log(squareDigits(3212));
+
+
+// 12 Minimal 4 ta musbat butun sonli massiv berilgan ikkita eng kichik musbat sonlar yig‘indisini
+// qaytaruvchi funksiya yarating. Hech qanday suzuvchi yoki musbat bo'lmagan butun sonlar o'tkazilmaydi.
+
+function sumTwoSmallestNumbers(arr) {
+    return arr.sort((a, b) =>  a - b)[0] + arr[1]
+}
+
+console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4]));
+
+
+// 13 Zavodda printer qutilarga teglarni chop etadi. Bir turdagi qutilar uchun printer oddiylik uchun harflar
+// bilan nomlangan ranglardan foydalanishi kerak a to m.
+// Printer tomonidan ishlatiladigan ranglar boshqaruv qatorida qayd etiladi. Misol uchun, "yaxshi" 
+// boshqaruv qatori aaabbbbhaijjjmprinter uch marta a rang, to'rt marta b rang, bir marta h rang, keyin bir marta a
+// rang ishlatilganligini anglatadi.
+// Ba'zida muammolar paydo bo'ladi: ranglarning etishmasligi, texnik nosozlik va "yomon" boshqaruv qatori, masalan 
+// aaaxbbbbyyhwawiwjjjwwm, dan bo'lmagan harflar bilan ishlab chiqariladi a to m.
+
+function word(w) {
+   return w.replace(/[a-m]/gi, '').length.toString() + '/' + w.length.toString()
+    
+}
+
+console.log(word("aaaxbbbbyyhwawiwjjjwwm"));
+
+
+// 14 berilgan sonni ildizini oling agar uni ildizi butun son bolsa unga 1 qo'shib 
+// kvadratga oshiring aks xolda -1 qaytaradigan funksiya yarating
+
+function findNextSquare(n) {
+   return Number.isInteger(Math.sqrt(n)) ? Math.pow(Math.sqrt(n) + 1, 2) : -1;
+}
+
+console.log(findNextSquare(25));
+
+
+// 15 Birliklar va nollardan iborat massiv berilgan, ekvivalent ikkilik qiymatni butun songa aylantiring.
+// Masalan: ning ikkilik [0, 0, 0, 1]ko'rinishi sifatida qaraladi .00011
+
+function binaryArrayToNumber(nums) {
+    return parseInt(nums.join().replace(/[,]/gi, ''), 2)
+}
+
+console.log(binaryArrayToNumber([0,0,1,0]));
