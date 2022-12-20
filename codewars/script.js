@@ -203,3 +203,89 @@ function binaryArrayToNumber(nums) {
 }
 
 console.log(binaryArrayToNumber([0,0,1,0]));
+
+
+// 16 Ushbu katadagi maqsadingiz bir ro'yxatni boshqasidan chiqarib tashlaydigan va natijani
+// qaytaradigan farq funktsiyasini amalga oshirishdir.
+// U list dan barcha qiymatlarni olib tashlashi kerak , ularning tartibini saqlab a, ro'yxatda mavjud .b
+// arrayDiff([1,2],[1]) == [2]
+
+// function arrayDiff(a, b) {
+//     return a.filter(e => !b.includes(e));
+// }
+// console.log(arrayDiff([1,2,2], [2]));
+
+// “Like” tizimini Facebook va boshqa sahifalardan bilsangiz kerak. Odamlar blog postlari, rasmlari yoki
+// boshqa narsalarni "yoqtirishi" mumkin. Biz bunday element yonida ko'rsatilishi kerak bo'lgan matnni yaratmoqchimiz.
+
+// []                                -->  "no one likes this"
+// ["Peter"]                         -->  "Peter likes this"
+// ["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+// ["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+// ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+function likes(names) {
+    if (names.length === 0){
+        return "no one likes this"
+    } else if (names.length === 1) {
+        return `${names} likes this`
+    } else if (names.length === 2) {
+        return `${names[0]} and ${names[1]} like this`
+    } else if (names.length === 3) {
+        return `${names[0]}, ${names[1]} and ${names[2]} like this`
+    } else if(names.length >= 4) {
+        return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+    }
+}
+
+console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
+
+
+// 17 Kirish sifatida manfiy bo'lmagan butun sonni (soniya) oladigan va vaqtni odam o'qiy oladigan
+//  formatda qaytaradigan funktsiyani yozing ( HH:MM:SS)
+// HH= soat, 2 ta raqamga to'ldirilgan, diapazon: 00 - 99
+// MM= daqiqalar, 2 ta raqamga to'ldirilgan, diapazon: 00 - 59
+// SS= soniya, 2 ta raqamga to'ldirilgan, diapazon: 00 - 59
+// Maksimal vaqt hech qachon 359999 ( 99:59:59) dan oshmaydi
+
+function humanReadable(seconds) {
+  let h = Math.floor(seconds / 3600);
+  let m = Math.floor(seconds / 60 - h * 60);
+  let s = seconds - (h * 3600 + m * 60);
+  let h2 = h < 10 ? "0" + h : h;
+  let m2 = m < 10 ? "0" + m : m;
+  let s2 = s < 10 ? "0" + s : s;
+  return `${h2}:${m2}:${s2}`;
+}
+
+// 2-usul
+function humanReadable(ss) {
+  let hours = parseInt(ss / 3600);
+  let minutes = parseInt(ss / 60) % 60;
+  let seconds = ss % 60;
+  let pad = function (val) {
+    return val < 10 ? "0" + val : val;
+  };
+  return pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+}
+
+console.log(humanReadable(35451));
+
+
+// 18 Digital root is the recursive sum of all the digits in a number.
+// Given n, take the sum of the digits of n. If that value has more than one digit, 
+// continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+
+function sum(number) {
+  let result = 0;
+  let numbers = number.toString();
+  for (let i = 0; i < numbers.length; i++) {
+    result += parseInt(numbers[i]);
+  }
+  if (result > 9) {
+    return sum(result);
+  } else {
+    return result;
+  }
+}
+console.log(sum(4560));
