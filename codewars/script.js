@@ -290,7 +290,7 @@ function sum(number) {
 }
 console.log(sum(4560));
 
-// Write a function that takes a string of parentheses, and determines if the order of the
+// 19 Write a function that takes a string of parentheses, and determines if the order of the
 // parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
 
 // Examples
@@ -305,3 +305,23 @@ function doTest(braces){
 }
 
 console.log(doTest("(())((()())())"))
+
+
+// 20 Ushbu misolda siz foydalanuvchi kiritish satri alfanumerik ekanligini tekshirishingiz kerak. Berilgan satr emas nil/null/NULL/None, shuning uchun buni tekshirishingiz shart emas.
+// Satr alfanumerik bo'lishi uchun quyidagi shartlarga ega:
+// Kamida bitta belgi ( ""yaroqsiz)
+// Ruxsat berilgan belgilar katta/kichik lotin harflari va dan gacha 0bo'lgan raqamlardir9
+// Bo'shliqlar/pastki chiziq yo'q
+
+function alphanumeric(str) {
+    if (str === '') {
+        return false
+    }
+    let str2 = str.replace(/[A-Z]/gi, '').replace(/[0-9]/gi, '');
+    return str2.length === 0 ? true : false;
+}
+
+console.log(alphanumeric("Mazinkaiser"));
+
+
+let alphanumeric = s => /^[a-z\d]+$/i.test(s);
